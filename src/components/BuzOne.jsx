@@ -81,31 +81,42 @@ function BuzOne() {
       >
         {/* Conteúdo principal centralizado */}
         <div className="flex-1 flex flex-col justify-center items-center relative py-8 lg:py-0">
-          {/* Título principal com configurações exatas do Figma */}
+          {/* Título principal */}
           <div className="relative mt-8 lg:mt-16">
             {/* Logo posicionada sobre a primeira palavra */}
-            <div className="absolute -top-10 left-8 sm:-top-12 sm:left-12 lg:-top-14 lg:left-14">
-              <img src="/bizmod-logo.png" alt="Bizmod Logo" className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
+            <div className="absolute -top-8 left-6 sm:-top-12 sm:left-12 lg:-top-14 lg:left-14">
+              <img src="/bizmod-logo.png" alt="Bizmod Logo" className="w-5 h-5 sm:w-7 sm:h-7 lg:w-8 lg:h-8" />
             </div>
 
-            <h1
-              className="font-semibold mb-4 sm:mb-6 text-white px-4"
-              style={{
-                fontSize: "20px",
-                lineHeight: "26px",
-                letterSpacing: "0%",
+            <h1 className="font-semibold mb-4 sm:mb-6 text-white px-4">
+              {/* Versão desktop */}
+              <div className="hidden sm:block text-xl lg:text-2xl" style={{
+                lineHeight: "1.4",
                 fontFamily: "Montserrat, sans-serif",
                 fontWeight: "600",
-                maxWidth: "400px",
                 textShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
-              }}
-              class="font-semibold mb-4 sm:mb-6 text-white px-4 text-lg sm:text-xl lg:text-2xl"
-            >
-              <div>
-                Em um <span className="bg-orange-500 rounded-sm px-1">mundo de ideias</span>,
+              }}>
+                <div>
+                  Em um <span className="rounded-sm px-1" style={{ backgroundColor: "#ff9274" }}>mundo de ideias</span>,
+                </div>
+                <div>
+                  como não ser <span className="rounded-sm px-1" style={{ backgroundColor: "#ff9274" }}>igual a todo mundo</span>?
+                </div>
               </div>
-              <div>
-                como não ser <span className="bg-orange-500 rounded-sm px-1">igual a todo mundo</span>?
+              
+              {/* Versão mobile */}
+              <div className="block sm:hidden text-sm" style={{
+                fontFamily: "Montserrat, sans-serif",
+                fontWeight: "600",
+                textShadow: "0 4px 4px rgba(0, 0, 0, 0.25)",
+                lineHeight: "1.4",
+              }}>
+                <div>
+                  Em um <span className="rounded-sm px-1" style={{ backgroundColor: "#ff9274" }}>mundo de ideias</span>, como não ser
+                </div>
+                <div>
+                  <span className="rounded-sm px-1" style={{ backgroundColor: "#ff9274" }}>igual a todo mundo</span>?
+                </div>
               </div>
             </h1>
           </div>
@@ -119,7 +130,7 @@ function BuzOne() {
             />
           </div>
 
-          {/* Caixa glassmorphism com imagem real - MÁXIMO TAMANHO NO MOBILE */}
+          {/* Caixa glassmorphism com imagem real */}
           <div className="relative mb-2 w-full max-w-lg sm:max-w-md lg:max-w-xl px-0 sm:px-4">
             <img src={box || "/placeholder.svg"} alt="Glassmorphism Box" className="w-full h-auto" />
             <div className="absolute inset-0 flex items-center justify-center px-3 sm:px-8 lg:px-14 py-2 sm:py-6 lg:py-10">
@@ -141,33 +152,34 @@ function BuzOne() {
           </div>
         </div>
 
-        {/* Logos das empresas parceiras */}
+        {/* Logos das empresas parceiras - FONTE DIMINUÍDA */}
         <div className="mt-1 pb-4 lg:pb-0">
-          <p className="text-xs text-gray-300 mb-3 sm:mb-4 font-medium">ESTUDAMOS MARCAS QUE DOMINAM O FUTURO COMO:</p>
+          <p className="text-xs sm:text-xs lg:text-xs text-gray-300 mb-3 sm:mb-4 font-medium">ESTUDAMOS MARCAS QUE DOMINAM O FUTURO COMO:</p>
           <div className="flex justify-center">
             <img src={logos || "/placeholder.svg"} alt="Logos das empresas parceiras" className="h-8 sm:h-10 lg:h-12 opacity-70" />
           </div>
         </div>
       </div>
 
-      {/* Right Section - Light Background with Form */}
-      <div className="w-full lg:w-1/2 bg-gray-50 p-4 sm:p-6 lg:p-12 flex flex-col justify-center">
+      {/* Right Section - Light Background with Form - SUBIDO PARA CIMA */}
+      <div className="w-full lg:w-1/2 bg-gray-50 p-4 sm:p-6 lg:p-8 flex flex-col justify-start lg:justify-center">
         <div className="max-w-md mx-auto w-full">
           <div
-            className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg"
+            className="bg-white rounded-2xl p-5 sm:p-6 lg:p-7 shadow-lg"
             style={{
               boxShadow: "0 0 15px rgba(0, 0, 0, 0.1)",
             }}
           >
+            {/* PONTO REMOVIDO DO BIZ ONE */}
             <h2 className="text-2xl sm:text-3xl font-bold mb-2 sm:mb-3" style={{ color: "#49748A" }}>
-              Biz One.
+              Biz One
             </h2>
-            <p className="text-gray-800 mb-6 sm:mb-8 text-lg sm:text-xl font-semibold leading-relaxed">
-              Onde ideias que mudam o<br />
-              jogo começam.
+            {/* FONTE DIMINUÍDA PARA CABER EM UMA LINHA */}
+            <p className="text-gray-800 mb-4 sm:mb-6 text-base sm:text-lg lg:text-xl font-semibold leading-tight">
+              Onde ideias que mudam o jogo começam.
             </p>
 
-            <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
+            <form className="space-y-3 sm:space-y-4 lg:space-y-5" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">Nome</label>
                 <input
