@@ -4,8 +4,8 @@ import BuzOne from '../components/BuzOne';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Navigate to="/buzone" replace />} />
-      <Route path="/buzone" element={<BuzOne />} />
+      <Route path="/" element={<Navigate to="/bizone" replace />} />
+      <Route path="/bizone" element={<BuzOne />} />
     </Routes>
   );
 }
