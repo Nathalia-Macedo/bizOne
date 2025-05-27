@@ -6,28 +6,47 @@ const PIXEL_ID = "1016075902193691"
 
 export default function MetaPixel() {
   useEffect(() => {
-    // Verificar se o pixel já foi carregado
-    if (window.fbq) return // Carregar o Pixel do Facebook
-    ;((f, b, e, v, n, t, s) => {
-      if (f.fbq) return
-      n = f.fbq = () => {
-        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-      }
-      if (!f._fbq) f._fbq = n
-      n.push = n
-      n.loaded = !0
-      n.version = "2.0"
-      n.queue = []
-      t = b.createElement(e)
-      t.async = !0
-      t.src = v
-      s = b.getElementsByTagName(e)[0]
-      s.parentNode.insertBefore(t, s)
-    })(window, document, "script", "https://connect.facebook.net/en_US/fbevents.js")
+    // Verificar se já foi carregado
+    if (window.fbq) {
+      console.log("Meta Pixel já carregado")
+      return
+    }
 
-    // Inicializar o pixel
-    window.fbq("init", PIXEL_ID)
-    window.fbq("track", "PageView")
+    console.log("Carregando Meta Pixel...")
+
+    // Carregar o script do Facebook Pixel
+    const script = document.createElement("script")
+    script.async = true
+    script.src = "https://connect.facebook.net/en_US/fbevents.js"
+
+    script.onload = () => {
+      console.log("Script do Meta Pixel carregado com sucesso")
+
+      // Inicializar o pixel após o script carregar
+      if (window.fbq) {
+        window.fbq("init", PIXEL_ID)
+        window.fbq("track", "PageView")
+        console.log("Meta Pixel inicializado com ID:", PIXEL_ID)
+      }
+    }
+
+    script.onerror = () => {
+      console.error("Erro ao carregar script do Meta Pixel")
+    }
+
+    // Criar a função fbq antes de carregar o script
+    window.fbq =
+      window.fbq ||
+      (() => {
+        ;(window.fbq.q = window.fbq.q || []).push(arguments)
+      })
+    window.fbq.push = window.fbq
+    window.fbq.loaded = true
+    window.fbq.version = "2.0"
+    window.fbq.queue = []
+
+    // Adicionar o script ao head
+    document.head.appendChild(script)
 
     // Adicionar noscript fallback
     const noscript = document.createElement("noscript")
@@ -37,8 +56,11 @@ export default function MetaPixel() {
     `
     document.head.appendChild(noscript)
 
+    // Cleanup
     return () => {
-      // Cleanup se necessário
+      if (script && script.parentNode) {
+        script.parentNode.removeChild(script)
+      }
       if (noscript && noscript.parentNode) {
         noscript.parentNode.removeChild(noscript)
       }
