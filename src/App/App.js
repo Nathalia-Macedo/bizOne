@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom"
+import Obrigado from "../components/Obrigado"
+import MetaPixel from '../components/MetaPixel'
 import BuzOne from "../components/BuzOne"
-import MetaPixel from "../components/MetaPixel"
 function App() {
   return (
     <>
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigate to="/bizone" replace />} />
         <Route path="/bizone" element={<BuzOne />} />
+        <Route path="/obrigado" element={<Obrigado />} />
       </Routes>
     </>
   )
