@@ -34,7 +34,7 @@ export default function RootLayout({ children }) {
           }}
         />
 
-        {/* Meta Pixel Script Direto no Head */}
+        {/* Meta Pixel Script Direto no Head - VERSÃO CORRIGIDA */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -46,8 +46,14 @@ export default function RootLayout({ children }) {
               t.src=v;s=b.getElementsByTagName(e)[0];
               s.parentNode.insertBefore(t,s)}(window, document,'script',
               'https://connect.facebook.net/en_US/fbevents.js');
-              fbq('init', '1016075902193691');
-              fbq('track', 'PageView');
+              
+              // Aguardar o script carregar antes de inicializar
+              window.addEventListener('load', function() {
+                if (window.fbq) {
+                  fbq('init', '1016075902193691');
+                  fbq('track', 'PageView');
+                }
+              });
             `,
           }}
         />
