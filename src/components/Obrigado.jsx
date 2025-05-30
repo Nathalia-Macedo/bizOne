@@ -29,13 +29,13 @@ function Obrigado() {
 
           {/* Título */}
           <h1 className="text-2xl sm:text-3xl font-bold mb-4" style={{ color: "#49748A" }}>
-            Obrigado!
+            Obrigada! 
           </h1>
 
           {/* Mensagem */}
           <p className="text-gray-600 mb-6 leading-relaxed">
-            Seu cadastro foi realizado com sucesso! Em breve você receberá mais informações sobre o{" "}
-            <span className="font-semibold text-gray-800">Biz One</span> no seu e-mail.
+
+Esperamos que o Biz One te traga aquela ideia que vai mudar o jogo, e vem muito mais por aí, ta? Vamos juntas?
           </p>
 
           {/* Botões de ação */}
