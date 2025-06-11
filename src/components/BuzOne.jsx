@@ -116,7 +116,8 @@ console.log("Enviando para Salesforce:", formData)
 
 
       // Redirecionar para página de obrigado
-      navigate("/obrigado")
+     navigate("/verificacao", { state: { formData } })
+
     } catch (error) {
       // Em caso de erro, ainda redireciona
       navigate("/obrigado")
