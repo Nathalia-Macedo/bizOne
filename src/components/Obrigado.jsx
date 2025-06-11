@@ -35,7 +35,7 @@ function Obrigado() {
           {/* Mensagem */}
           <p className="text-gray-600 mb-6 leading-relaxed">
 
-Esperamos que o Biz One te traga aquela ideia que vai mudar o jogo, e vem muito mais por aí, ta? Vamos juntas?
+      Esperamos que o Biz One te traga aquela ideia que vai mudar o jogo, e vem muito mais por aí, ta? Vamos juntas?
           </p>
 
           {/* Botões de ação */}

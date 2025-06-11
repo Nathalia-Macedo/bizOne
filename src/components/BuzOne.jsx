@@ -103,9 +103,17 @@ function BuzOne() {
         phone: formData.telefone,
         firstName: formData.nome,
       })
+console.log("Enviando para Salesforce:", formData)
 
-      // Simular envio para backend (aqui você integrará com Salesforce depois)
-      await new Promise((resolve) => setTimeout(resolve, 1000))
+    await fetch("https://servidor-bizone.onrender.com/api/lead", {
+
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify(formData)
+})
+
 
       // Redirecionar para página de obrigado
       navigate("/obrigado")
